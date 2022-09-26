@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false})) // Para que reciba datos que vienen desde formularios html
 app.use(cors());
 app.use(morgan("dev"));
-// app.use(fillData);
+app.use(fillData);
 app.use(loginRoute);
 
 // Exportamos nuestra instancia para poder consumirla desde otro sitio
