@@ -44,6 +44,7 @@ function FormRemote() {
                     user: userState,
                     password: passwordState 
                 }
+                localStorage.setItem("config", JSON.stringify(connectionValues))
                 fetch("http://localhost:3000/userLogin", {
                     method: "POST",
                     body: JSON.stringify(connectionValues),
@@ -52,7 +53,7 @@ function FormRemote() {
                     }
                 })
                 .then( res => res.json())
-                .then( data => navigate( "/schema", {state: data} ) );
+                .then( data => navigate( "/menu", {state: data} ) );
 
             } catch (error) {
                 console.log("Error en frontend", error)

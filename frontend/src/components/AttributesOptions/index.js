@@ -16,20 +16,29 @@ function AttributesOptions( props ) {
                     schema.tables.forEach( table => {
                         if(table.tableName === props.tableName) {
                             table.atributes.push( attribute )
-                            // console.log(table.atributes)
                         }
                     } )
                 }
             })
-        } 
-
+        } else {
+            tablesState.forEach( schema => {
+                if( schema.schemaName === props.schemaName ) {
+                    schema.tables.forEach( table => {
+                        if(table.tableName === props.tableName) {
+                            table.atributes = table.atributes.filter( attribute => attribute.columnName !== props.attribute.columnName )
+                            console.log(table.atributes)
+                        }
+                    } )
+                }
+            })
+        }
     }   
     
 
     return(
         <>
-            <input type="checkbox" id={props.attribute.columnName} value={props.attribute.columnName} onChange={handleCheckboxs} ></input> 
-            <label className="option-label" for={props.attribute.columnName}>{`${props.attribute.columnName} - ${props.attribute.dataType}`}</label>
+            <input type="checkbox" id={`${props.schemaName}.${props.tableName}.${props.attribute.columnName}`} value={props.attribute.columnName} onChange={handleCheckboxs} ></input> 
+            <label className="option-label" for={`${props.schemaName}.${props.tableName}.${props.attribute.columnName}`}>{`${props.attribute.columnName} - ${props.attribute.dataType}`}</label>
         </>
     );
 }

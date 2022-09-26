@@ -8,6 +8,7 @@ import morgan from 'morgan'
 // Obtenemos todas las rutas de nuestras apis
 import loginRoute from "./routes/loginRoute.routes.js"  
 import fillData from "./routes/fillData.routes.js"
+import saveDiagrams from "./routes/saveDiagrams.routes.js"
 
 // Creamos una instancia de express para utilizar nuestras rutas
 const app = express();
@@ -19,6 +20,7 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(fillData);
 app.use(loginRoute);
+app.use(saveDiagrams);
 
 // Exportamos nuestra instancia para poder consumirla desde otro sitio
 export default app;

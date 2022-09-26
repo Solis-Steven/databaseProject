@@ -6,22 +6,17 @@ import { getConnection, queries } from "../database/index.js"
  * and to each one of these you assign their respective tables and their attributes.
  * 
  * @params (pool) allows multiple connections to the backend
- * @returns the response jsonlist
+ * @returns the response 
  */
-export const loadSchemaData = async ( pool, res ) => {
-
-    const response = await pool.query("select genSchemaNames();") 
-    const schemaNames = response.rows[0].genschemanames;
-    const schemaList = schemaNames.split(',');
-    var jsonList = [];
-    for (const schema of schemaList) {  
-        const reponse2 = await pool.query("select genJsonData('"+ schema +"');")  
-        const jsonReponse = reponse2.rows[0].genjsondata
-        const parsedJson = JSON.parse(jsonReponse)
-        jsonList.push(parsedJson);
-    }
-    pool.end();
-    return jsonList;
+export const delDiagram = async ( pool, res ) => {
+idDid_name
+    const delValues = ({
+        idD: pool.body.user,
+        usuario: pool.body.diagram,
+    
+    });
+    const response = await pool.query("select delete_diagram(idD int, usuario varchar)")
+    return response;
 }
 
 /**

@@ -12,14 +12,20 @@ function TablesOptions( props ) {
                 if( schema.schemaName === props.schemaName ) {
                     schema.tables.push( newTable )                }
             } );
-        } 
+        } else {
+            schemas.forEach( schema => {
+                if( schema.schemaName === props.schemaName ) {
+                    schema.tables = schema.tables.filter( table => table.tableName !== props.tableName )
+                }
+            } );
+        }
     }   
     
 
     return(
         <>
-            <input type="checkbox" id={props.tableName} value={props.tableName} onChange={handleCheckboxs} ></input> 
-            <label className="option-label" for={props.tableName}>{props.tableName}</label>
+            <input type="checkbox" id={`${props.schemaName}.${props.tableName}`} value={props.tableName} onChange={handleCheckboxs} ></input> 
+            <label className="option-label" for={`${props.schemaName}.${props.tableName}`}>{props.tableName}</label>
         </>
     );
 }

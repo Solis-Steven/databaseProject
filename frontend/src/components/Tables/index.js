@@ -8,20 +8,19 @@ function Tables() {
     const { allSchemas, filteredSchemas } = location.state
     const tablesState = filteredSchemas
 
-
     return(
         <section> 
             <div className="tables">
                 {
                     
-                    allSchemas.filter( schema =>
+                    allSchemas.location.filter( schema =>
                         filteredSchemas.map( e => e.schemaName ).includes(schema.schemaName) )
                     .map( schema => (
                         <div className="table">
                             <h3 className="schema-name">{schema.schemaName}</h3>
                             {
                                 schema.tables.map( table =>    
-                                    <TablesOptions  tablesState={tablesState} schemaList={ allSchemas } tableName={ table.tableName } schemaName={ schema.schemaName }/>
+                                    <TablesOptions  tablesState={tablesState} schemaList={ allSchemas.location } tableName={ table.tableName } schemaName={ schema.schemaName }/>
                                 )
                             }
                         </div>

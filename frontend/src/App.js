@@ -6,6 +6,8 @@ import { Frame } from "./components/Frame";
 import { Tables } from "./components/Tables";
 import { Attributes } from "./components/Attributes";
 import { SaLogin } from "./components/SaLogin";
+import { Menu } from "./components/Menu"
+import { MakeDiagram } from "./components/MakeDiagram";
 
 export default function App() {
   return (
@@ -25,9 +27,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<SaLogin />} />
         <Route path="/formremote" element={<FormRemote />} />
+        <Route path="/menu" element={<Menu />} />
         <Route path="/schema" element={<Frame />} />
         <Route path="/tables" element={<Tables />} />
         <Route path="/attributes" element={<Attributes />} />
+        <Route path="/makediagram" element={<MakeDiagram />} />
       </Routes>
       
     </>

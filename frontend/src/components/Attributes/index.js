@@ -36,7 +36,7 @@ function Attributes(  ) {
                 }
 
                 <div className="attributes-footer">
-                    <Link to="/" className="footer-btn" state={{endSchema: newSchemaState}}>Generate Diagram</Link>
+                    <Link to="/makediagram" className="footer-btn" state={{endSchema: newSchemaState}}>Generate Diagram</Link>
                 </div>
 
             </div>
