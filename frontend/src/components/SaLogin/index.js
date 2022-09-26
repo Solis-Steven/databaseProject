@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import "./FormRemote.css"
+import React, { useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import "../FormRemote/FormRemote.css"
 
-function FormRemote() {
+function SaLogin() {
     const [ serverConnectionState, setServerConnectionState ] = React.useState("");
     const [ databaseState, setDatabaseState ] = React.useState("");
     const [ portState, setPorState ] = React.useState("");
@@ -35,7 +35,7 @@ function FormRemote() {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        const loadDatabaseInformation = () => {
+        const generateDiagram = () => {
             try {
                 const connectionValues = {
                     serverConnection: serverConnectionState,
@@ -44,7 +44,7 @@ function FormRemote() {
                     user: userState,
                     password: passwordState 
                 }
-                fetch("http://localhost:3000/userLogin", {
+                fetch("http://localhost:3000/setup", {
                     method: "POST",
                     body: JSON.stringify(connectionValues),
                     headers: {
@@ -59,7 +59,7 @@ function FormRemote() {
             }
         }
 
-        loadDatabaseInformation()
+        generateDiagram()
 
     }
  
@@ -79,7 +79,7 @@ function FormRemote() {
             <div className="prueba">
             
                 <form ref={myForm} className="form" onSubmit={onSubmit}>
-                <h2 className="title__remote">Database Remote Connections</h2>
+                <h2 className="title__remote">Setup Database (SA USER)</h2>
                     <label className="formulario-label__remote">Server to connect</label>
                     <input 
                         type="text"
@@ -139,14 +139,14 @@ function FormRemote() {
                         ref={btnSend}
                         type="submit" 
                         className={`formulario-button__remote formulario-button__false__remote`}    
-                        value="Connect">
+                        value="SETUP">
                     </input>
 
-                    <Link to="/" className="formulario-btn-cambio__remote">Setup database</Link>
+                    <Link to="/formremote" className="formulario-btn-cambio__remote">Remote connection</Link>
                 </form>
             </div>
         </section>
     );
 }
 
-export { FormRemote };
+export { SaLogin };

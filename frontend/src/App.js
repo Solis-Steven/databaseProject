@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom"
 import { Frame } from "./components/Frame";
 import { Tables } from "./components/Tables";
 import { Attributes } from "./components/Attributes";
+import { SaLogin } from "./components/SaLogin";
 
 export default function App() {
   return (
@@ -22,7 +23,8 @@ export default function App() {
       />
 
       <Routes>
-        <Route path="/" element={<FormRemote />} />
+        <Route path="/" element={<SaLogin />} />
+        <Route path="/formremote" element={<FormRemote />} />
         <Route path="/schema" element={<Frame />} />
         <Route path="/tables" element={<Tables />} />
         <Route path="/attributes" element={<Attributes />} />
