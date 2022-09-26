@@ -29,7 +29,6 @@ export default function App() {
         <Route path="/tables" element={<Tables />} />
         <Route path="/attributes" element={<Attributes />} />
       </Routes>
-      {/* <Frame /> */}
       
     </>
     

@@ -10,9 +10,8 @@ function Tables() {
 
 
     return(
-        <section className="table-container">
+        <section> 
             <div className="tables">
-
                 {
                     
                     allSchemas.filter( schema =>

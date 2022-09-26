@@ -15,7 +15,7 @@ function Attributes(  ) {
     });
 
     return(
-        <section className="attributes-container">
+        <section >
             <div className="attributes">
 
                 {
@@ -40,8 +40,6 @@ function Attributes(  ) {
                 </div>
 
             </div>
-
-            
         </section>
     );
 }

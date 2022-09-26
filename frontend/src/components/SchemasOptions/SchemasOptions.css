@@ -21,6 +21,7 @@
     cursor: pointer;
 }
 
+
 .option-label:before {
     content: "";
     border: solid 1px white;

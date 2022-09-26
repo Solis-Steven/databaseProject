@@ -3,45 +3,6 @@ import "./Frame.css"
 import { Link, useLocation } from "react-router-dom"
 import { SchemasOptions } from "../SchemasOptions";
 
-
-const db = [
-    {
-        schemaName: 'public',
-        tables: [
-            {
-                tableName: "planetas",
-                attributes: [
-                    {
-                        columnName: "color",
-                        dataType: "varchar"
-                    },
-
-                    {
-                        columnName: "antiguedad",
-                        dataType: "int"
-                    }
-                ]
-            },
-            {
-                tableName: "nebulosas",
-                attributes: [
-                    {
-                        columnName: "color",
-                        dataType: "varchar"
-                    }
-                ]
-            }
-        ]
-    },
-
-    {
-        schemaName: 'poo',
-        tables: [
-            
-        ]
-    }
-]
-
 function Frame( ) {
 
     const location = useLocation();
@@ -52,7 +13,7 @@ function Frame( ) {
     }, [ schemaList ] );
 
     return(
-        <section className="frame-container">
+        <section >
             <div className="frame">
 
                 <div className="grid-options">
