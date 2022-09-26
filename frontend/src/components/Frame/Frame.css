@@ -1,0 +1,45 @@
+
+.frame-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.frame {
+    border: 2px solid white;
+    width: 90%;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.grid-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.options {
+    padding: 1em;
+}
+
+.frame-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.footer-btn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    align-self: flex-end;
+    margin: 1rem 1rem;
+    padding: 0;
+    z-index: 1;
+    cursor: pointer;
+    text-decoration: none;
+}

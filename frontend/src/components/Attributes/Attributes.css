@@ -1,0 +1,55 @@
+
+.attributes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.attributes {
+    border: 2px solid white;
+    width: 90%;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+}
+
+.attribute {
+    border: solid 1px white;
+    border-radius: 20px;
+    margin-right: 2em;
+    display: flex;
+    flex-direction: row;
+    padding-right: 2em;
+}
+
+.schema-table-name {
+    color: white;
+    border-right: solid 1px white;
+    padding-right: 1em;
+}
+
+.options {
+    padding: 1em;
+}
+
+.attributes-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.footer-btn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    align-self: flex-end;
+    margin: 1rem 1rem;
+    padding: 0;
+    z-index: 1;
+    cursor: pointer;
+    text-decoration: none;
+}

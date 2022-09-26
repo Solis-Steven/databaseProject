@@ -1,0 +1,43 @@
+/* .table-checkbox {
+    cursor: pointer;
+}
+
+.table-label {
+    color: white;
+}
+
+.table-label__title {
+    font-size: 1.3rem;
+    border-bottom: 1px solid white;
+} */
+
+
+[type="checkbox"] {display: none;}
+
+.option-label {
+    padding-left: 1.3em;
+    position: relative;
+    color: white;
+    cursor: pointer;
+}
+
+.option-label:before {
+    content: "";
+    border: solid 1px white;
+    border-radius: 3px;
+    width: 0.8em;
+    height: 0.8em;
+    position: absolute;
+    left: 0px;
+    transition: all 0.2s;
+    transform: rotate(0deg);
+    cursor: pointer;
+}
+
+[type="checkbox"]:checked + .option-label:before {
+    border-color: greenyellow;
+    color: greenyellow;
+    content: "\f00c";
+    font-family: FontAwesome;
+    transform: rotate(360deg);
+}
