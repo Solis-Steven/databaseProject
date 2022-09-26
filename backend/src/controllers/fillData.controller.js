@@ -181,9 +181,65 @@ export const loadData = async ( pool ) => {
     $$ 
     LANGUAGE PLPGSQL ;`
 
+    var aux3 = `CREATE OR REPLACE FUNCTION insert_diagram(diagrama varchar, nombre_usr varchar(15))
+    RETURNS BOOL
+    SECURITY DEFINER
+    AS
+    $$
+    BEGIN 
+    
+        Insert into PlantDiagrams (diagrama_link , nombre_usuario ) VALUES
+                    (diagrama, nombre_usr);
+    
+        RETURN TRUE; 
+    
+    END;
+    $$
+    LANGUAGE PLPGSQL ;`
+
+    var aux4 = `CREATE OR REPLACE FUNCTION generate_diagram_table()
+    RETURNS BOOL
+    SECURITY DEFINER
+    AS
+    $$
+    BEGIN 
+    
+        CREATE TABLE IF NOT EXISTS PlantDiagrams (
+            id serial not null,
+            diagrama_link varchar not null,
+            nombre_usuario varchar(15) not null,
+            CONSTRAINT PK_PlantDiagrams
+                PRIMARY KEY (id)
+        );
+    
+        RETURN TRUE; 
+    
+    END;
+    $$
+    LANGUAGE PLPGSQL ;`
+
+    var aux5 = `CREATE OR REPLACE FUNCTION delete_diagram(idD int, usuario varchar )
+    RETURNS BOOL
+    SECURITY DEFINER
+    AS
+    $$
+    BEGIN 
+    
+        DELETE FROM PlantDiagrams WHERE
+            id = idD AND  nombre_usuario = usuario; 
+    
+        RETURN TRUE; 
+    
+    END;
+    $$
+    LANGUAGE PLPGSQL ;`
+    
     const response = await pool.query(aux)
     const response2 = await pool.query(aux2)
-    console.log(response, response2);
+    const response3 = await pool.query(aux3)
+    const response4 = await pool.query(aux4)
+    const response5 = await pool.query(aux5)
+    console.log(response, response2, response3, response4, response5 );
     pool.end(); 
 }
 

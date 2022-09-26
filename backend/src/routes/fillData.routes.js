@@ -8,7 +8,7 @@ import { makeConnection } from "../controllers/fillData.controller.js"
 const router = Router();
 
 // Rutas
-router.post('/userLogin', makeConnection)
+router.post('/setup', makeConnection)
 
 
 // Exportamos nuestra instancia para poder consumirla desde otro sitio
